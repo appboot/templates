@@ -1,4 +1,5 @@
 npm install
+
 if which code >/dev/null; then
   code .
 else
