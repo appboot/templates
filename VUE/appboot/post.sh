@@ -1,3 +1,9 @@
+#!/bin/bash
+shell_dir=$(dirname $0)
+cd ${shell_dir}
+
+cd ..
+
 npm install
 
 if which code >/dev/null; then
