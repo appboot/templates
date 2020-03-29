@@ -1,6 +1,6 @@
 # Templates
 
-[中文](https://github.com/appboot/templates/blob/master/READMECN.md)
+[中文](https://github.com/appboot/templates/blob/master/README-CN.md)
 
 > appboot templates.
 
