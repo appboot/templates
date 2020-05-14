@@ -16,7 +16,9 @@
 
 ## 配置项
 
-配置项存放在`模板`中的 appboot 文件夹，主要用于[appboot](https://github.com/appboot/appboot)前端渲染和后端执行自定义脚本
+配置项存放在`模板`中的 `appboot` 文件夹，主要用于[appboot](https://github.com/appboot/appboot)前端渲染和后端执行自定义脚本
+
+![appboot](./images/config.png)
 
 - `pre.sh`：创建项目之前运行的脚本，如[VUE 模板 pre.sh](./VUE/appboot/pre.sh)
 - `post.sh`：创建项目之后运行的脚本，如[VUE 模板 post.sh](./VUE/appboot/post.sh)

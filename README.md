@@ -18,11 +18,13 @@ The template code that needs to be converted to project code, such as [VUE templ
 
 ### Configuration items
 
-The configuration items are stored in the appboot folder in the `template`, which is mainly used for [appboot](https://github.com/appboot/appboot) front-end rendering and back-end execution of custom scripts.
+The configuration items are stored in the `appboot` folder in the `template`, which is mainly used for [appboot](https://github.com/appboot/appboot) front-end rendering and back-end execution of custom scripts.
 
-- `pre.sh`: Script to run before creating the project, such as [VUE template pre.sh](./VUE/appboot/pre.sh)
-- `post.sh`: Script to run after creating the project, such as [VUE template post.sh](./VUE/appboot/post.sh)
-- `appboot.yaml`: Non-script configuration items, such as [VUE template appboot.yaml] (./VUE/appboot/appboot.yaml)
+![appboot](./images/config.png)
+
+- `pre.sh`: script to run before creating the project, such as [VUE template pre.sh](./VUE/appboot/pre.sh)
+- `post.sh`: script to run after creating the project, such as [VUE template post.sh](./VUE/appboot/post.sh)
+- `appboot.yaml`: non-script configuration items, such as [VUE template appboot.yaml](./VUE/appboot/appboot.yaml)
   - git: git configuration items, currently supports prefix configuration.
   - parameters: parameter list, currently supports three types of string, int, float.
 
@@ -40,11 +42,11 @@ The `{{.Name}}` placeholder in the VUE template will be replaced with the appboo
 
 ### Configuration items
 
-Create a project through [appboot] (https://github.com/appboot/appboot) or [appbctl] (https://github.com/appboot/appbctl), and configure `pre.sh` and` post. sh` will be executed before and after creating the project.
+Create a project through [appboot](https://github.com/appboot/appboot) or [appbctl](https://github.com/appboot/appbctl), and configure `pre.sh` and` post. sh` will be executed before and after creating the project.
 
 ![appboot](./images/vue-scripts.png)
 
-The `appboot.yaml` in the configuration items will be obtained by [appboot] (https://github.com/appboot/appboot) and rendered to the front-end interface.
+The `appboot.yaml` in the configuration items will be obtained by [appboot](https://github.com/appboot/appboot) and rendered to the front-end interface.
 
 ![appboot](./images/config.png)
 
