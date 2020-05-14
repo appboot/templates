@@ -10,7 +10,7 @@ parameters:
       default: hello vue
   int:
     - key: Temperature
-      default: 28
+      default: 27
       min: 0
       max: 35
   float:

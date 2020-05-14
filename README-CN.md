@@ -1,6 +1,6 @@
 # Templates
 
-> appboot 模板.
+> appboot 模板
 
 ## 模板
 
