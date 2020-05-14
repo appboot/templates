@@ -1,4 +1,0 @@
-# Default git prefix
-# Supports SSH and HTTPS
-# git@github.com:appboot/ https://github.com/appboot/
-prefix: https://github.com/appboot/

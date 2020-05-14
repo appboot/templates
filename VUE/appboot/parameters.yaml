@@ -1,8 +1,0 @@
-string:
-    - key: Hello
-      default: hello vue
-int:
-    - key: Temperature
-      default: 28
-      min: 0
-      max: 35

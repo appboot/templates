@@ -10,25 +10,42 @@
 
 `Template` use template syntax and use `{{.xxx}}` to place placeholders for appbot parameters.
 
-The template consists of two parts.
+The template is divided into two parts: code and configuration items.
 
-- code: The template code that needs to be converted into project code.
-- appboot configuration items: The configuration items is stored in the appboot folder in the `template`. Currently, configuration items can include `pre.sh` (a script that runs before the project is created) and `post.sh` (a script that runs after the project is created). In the future, the configuration items will support more configurations.
+### Code
+
+The template code that needs to be converted to project code, such as [VUE template](./VUE).
+
+### Configuration items
+
+The configuration items are stored in the appboot folder in the `template`, which is mainly used for [appboot](https://github.com/appboot/appboot) front-end rendering and back-end execution of custom scripts.
+
+- `pre.sh`: Script to run before creating the project, such as [VUE template pre.sh](./VUE/appboot/pre.sh)
+- `post.sh`: Script to run after creating the project, such as [VUE template post.sh](./VUE/appboot/post.sh)
+- `appboot.yaml`: Non-script configuration items, such as [VUE template appboot.yaml] (./VUE/appboot/appboot.yaml)
+  - git: git configuration items, currently supports prefix configuration.
+  - parameters: parameter list, currently supports three types of string, int, float.
 
 ## Demo
 
-Let's use the [VUE template]((https://github.com/appboot/templates/tree/master/VUE)) to explain the appbot template.
+Let's use the [VUE template](./VUE) as an example to explain the use of appboot templates.
 
-### Placeholders
+### Code
 
 The `{{.Name}}` placeholder in the VUE template will be replaced with the appboot `Name` parameter when creating the project.
 
-![appboot](https://github.com/appboot/templates/blob/master/images/vue-template.png?raw=true)
+![appboot](./images/vue-template.png)
 
-![appboot](https://github.com/appboot/templates/blob/master/images/vue-test.png?raw=true)
+![appboot](./images/vue-test.png)
 
-### Scripts
+### Configuration items
 
-The `pre.sh` and `post.sh` in the configuration items will be executed before and after creating the project, respectively.
+Create a project through [appboot] (https://github.com/appboot/appboot) or [appbctl] (https://github.com/appboot/appbctl), and configure `pre.sh` and` post. sh` will be executed before and after creating the project.
 
-![appboot](https://github.com/appboot/templates/blob/master/images/vue-scripts.png?raw=true)
+![appboot](./images/vue-scripts.png)
+
+The `appboot.yaml` in the configuration items will be obtained by [appboot] (https://github.com/appboot/appboot) and rendered to the front-end interface.
+
+![appboot](./images/config.png)
+
+![appboot](./images/appboot.png)
