@@ -18,7 +18,7 @@
 
 配置项存放在`模板`中的 `appboot` 文件夹，主要用于[appboot](https://github.com/appboot/appboot)前端渲染和后端执行自定义脚本
 
-![appboot](./images/config.png)
+![appboot](./VUE/appboot/images/config.png)
 
 - `pre.sh`：创建项目之前运行的脚本，如[VUE 模板 pre.sh](./VUE/appboot/pre.sh)
 - `post.sh`：创建项目之后运行的脚本，如[VUE 模板 post.sh](./VUE/appboot/post.sh)
@@ -34,18 +34,18 @@
 
 通过 [appboot](https://github.com/appboot/appboot) 或者 [appbctl](https://github.com/appboot/appbctl) 创建项目，VUE 模板中 `{{.Name}}` 占位符将被替换为 appboot `Name` 参数。
 
-![appboot](./images/vue-template.png)
+![appboot](./VUE/appboot/images/vue-template.png)
 
-![appboot](./images/vue-test.png)
+![appboot](./VUE/appboot/images/vue-test.png)
 
 ### 配置项
 
 通过 [appboot](https://github.com/appboot/appboot) 或者 [appbctl](https://github.com/appboot/appbctl) 创建项目，配置项中的 `pre.sh` 和 `post.sh` 将分别在创建项目之前和之后执行。
 
-![appboot](./images/vue-scripts.png)
+![appboot](./VUE/appboot/images/vue-scripts.png)
 
 配置项中的 `appboot.yaml` 会被 [appboot](https://github.com/appboot/appboot) 获取并渲染到前端界面。
 
-![appboot](./images/config.png)
+![appboot](./VUE/appboot/images/config.png)
 
-![appboot](./images/appboot.png)
+![appboot](./VUE/appboot/images/appboot.png)

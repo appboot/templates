@@ -20,7 +20,7 @@ The template code that needs to be converted to project code, such as [VUE templ
 
 The configuration items are stored in the `appboot` folder in the `template`, which is mainly used for [appboot](https://github.com/appboot/appboot) front-end rendering and back-end execution of custom scripts.
 
-![appboot](./images/config.png)
+![appboot](./VUE/appboot/images/config.png)
 
 - `pre.sh`: script to run before creating the project, such as [VUE template pre.sh](./VUE/appboot/pre.sh)
 - `post.sh`: script to run after creating the project, such as [VUE template post.sh](./VUE/appboot/post.sh)
@@ -36,18 +36,18 @@ Let's use the [VUE template](./VUE) as an example to explain the use of appboot 
 
 The `{{.Name}}` placeholder in the VUE template will be replaced with the appboot `Name` parameter when creating the project.
 
-![appboot](./images/vue-template.png)
+![appboot](./VUE/appboot/images/vue-template.png)
 
-![appboot](./images/vue-test.png)
+![appboot](./VUE/appboot/images/vue-test.png)
 
 ### Configuration items
 
 Create a project through [appboot](https://github.com/appboot/appboot) or [appbctl](https://github.com/appboot/appbctl), and configure `pre.sh` and` post. sh` will be executed before and after creating the project.
 
-![appboot](./images/vue-scripts.png)
+![appboot](./VUE/appboot/images/vue-scripts.png)
 
 The `appboot.yaml` in the configuration items will be obtained by [appboot](https://github.com/appboot/appboot) and rendered to the front-end interface.
 
-![appboot](./images/config.png)
+![appboot](./VUE/appboot/images/config.png)
 
-![appboot](./images/appboot.png)
+![appboot](./VUE/appboot/images/appboot.png)
