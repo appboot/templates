@@ -6,8 +6,8 @@ export GOSUMDB=off
 
 APP_NAME={{.Name}}
 APP_VERSION=1.0.0
-IMAGE_NAME="makeblock/${APP_NAME}:${APP_VERSION}"
-IMAGE_LATEST="makeblock/${APP_NAME}:latest"
+IMAGE_NAME="{{.DockerGroup}}/${APP_NAME}:${APP_VERSION}"
+IMAGE_LATEST="{{.DockerGroup}}/${APP_NAME}:latest"
 
 all: fmt
 	echo 'make all'

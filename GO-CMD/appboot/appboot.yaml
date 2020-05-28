@@ -8,3 +8,5 @@ parameters:
   string:
     - key: ModuleGit
       default: github.com/appboot
+    - key: DockerGroup
+      default: appboot
