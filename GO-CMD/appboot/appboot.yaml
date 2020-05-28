@@ -1,0 +1,10 @@
+git:
+  # Default git prefix
+  # Supports SSH and HTTPS
+  # git@github.com:appboot/ https://github.com/appboot/
+  prefix: git@github.com:appboot/
+
+parameters:
+  string:
+    - key: ModuleGit
+      default: github.com/appboot
