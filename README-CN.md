@@ -6,7 +6,7 @@
 
 `模板`是 appboot 的一个重要概念。如果你使用过 [Helm](https://helm.sh/docs/intro/), `模板`非常类似 Helm 的 **Chart**。
 
-`模板`使用模板语法，用 `{{.xxx}}` 来为 appbot 的参数占位。
+`模板`使用模板语法，用 `{{.xxx}}` 来为 [appboot](https://github.com/appboot/appboot) 的参数占位。
 
 `模板`分为代码和配置项两大部分。
 

@@ -41,7 +41,7 @@ The `{{.Name}}` placeholder in the VUE template will be replaced with the appboo
 
 ### Configuration items
 
-Create a project through [appboot](https://github.com/appboot/appboot) or [appbctl](https://github.com/appboot/appbctl), and configure `pre.sh` and` post. sh` will be executed before and after creating the project.
+Create a project through [appboot](https://github.com/appboot/appboot) or [appbctl](https://github.com/appboot/appbctl), and configure `pre.sh` and` post.sh` will be executed before and after creating the project.
 
 ![appboot](./VUE/appboot/images/vue-scripts.png)
 
