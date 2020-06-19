@@ -1,0 +1,4 @@
+parameters:
+  string:
+    - key: OrgName
+      default: appboot
