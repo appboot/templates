@@ -23,7 +23,6 @@
 - `pre.sh`：创建项目之前运行的脚本，如[VUE 模板 pre.sh](./VUE/appboot/pre.sh)
 - `post.sh`：创建项目之后运行的脚本，如[VUE 模板 post.sh](./VUE/appboot/post.sh)
 - `appboot.yaml`：非脚本配置项，如[VUE 模板 appboot.yaml](./VUE/appboot/appboot.yaml)
-  - git：git 的配置项，目前支持 prefix 配置。
   - parameters：参数列表，目前支持 string、int、float 三种类型。
 
 ## Demo
