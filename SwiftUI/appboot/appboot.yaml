@@ -2,3 +2,9 @@ parameters:
   string:
     - key: OrgName
       default: appboot
+  select:
+    - key: Object
+      options:
+        - World
+        - Swift
+        - iOS
