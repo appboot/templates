@@ -6,47 +6,140 @@
 
 ## Template
 
-`Template` is important concept of appboot. If you have used [Helm](https://helm.sh/docs/intro/), the `template` is very similar to Helm's **Chart**.
+`Template` is important concept of `appboot`. If you have used [Helm](https://helm.sh/docs/intro/), the `template` is very similar to Helm's **Chart**.
 
-`Template` use template syntax and use `{{.xxx}}` to place placeholders for appbot parameters.
+`Template` use template syntax and use `{{.xxx}}` to place placeholders for appboot parameters.
 
-The template is divided into two parts: code and configuration items.
+`Template` is divided into **code** and **configuration** two parts.
 
 ### Code
 
 The template code that needs to be converted to project code, such as [VUE template](./VUE).
 
-### Configuration items
+### Configuration
 
-The configuration items are stored in the `appboot` folder in the `template`, which is mainly used for [appboot](https://github.com/appboot/appboot) front-end rendering and back-end execution of custom scripts.
+The configuration is stored in the template's `appboot/appboot.yaml`.
 
-![appboot](./VUE/appboot/images/config.png)
+```yaml
+# appboot.yaml
+desc: Vue 2 template
+parameters:
+  - key: Hello
+    type: string
+    tip: hello string
+    default: hello vue
+  - key: Object
+    type: select
+    tip: object value
+    options:
+      - World
+      - Vue
+      - iOS
+  - key: Temperature
+    type: int
+    tip: temperature value
+    default: 27
+    min: 0
+    max: 35
+  - key: Possibilities
+    type: float
+    tip: possibilities value
+    default: 0.6
+    min: 0
+    max: 1.0
+scripts:
+  before:
+    - echo before vue
+  after:
+    - cd appboot && sh after.sh
+```
 
-- `pre.sh`: script to run before creating the project, such as [VUE template pre.sh](./VUE/appboot/pre.sh)
-- `post.sh`: script to run after creating the project, such as [VUE template post.sh](./VUE/appboot/post.sh)
-- `appboot.yaml`: non-script configuration items, such as [VUE template appboot.yaml](./VUE/appboot/appboot.yaml)
-  - parameters: parameter list, currently supports three types of string, int, float.
+The configuration contains the following parts:
+
+- desc: template description
+- parameters: parameter list, currently supports `string, int, float, select` four types.
+  > The `Name` is the default parameter, indicating the name of the project, not listed in `parameters`.
+- scripts: custom scripts
+  - before: The set of commands executed before the project is created.**The current directory(pwd) is the location where appboot is executed**.
+  - after: The set of commands to execute after the project is created. **The current directory(pwd) is the root directory of the generated project**.
 
 ## Demo
 
-Let's use the [VUE template](./VUE) as an example to explain the use of appboot templates.
+The following takes [VUE template](./VUE) as an example to explain the template.
 
 ### Code
 
-The `{{.Name}}` placeholder in the VUE template will be replaced with the appboot `Name` parameter when creating the project.
+Create a project using the [appboot](https://github.com/appboot/appboot) command line.
+
+```sh
+❯ appboot create
+Using config file: /Users/catchzeng/.appboot/config.yaml
+✔ VUE
+Name: test
+Path: ~/Desktop/test
+Enter the parameters, if you need to use the default value, just press Enter.
+Hello: hello
+✔ World
+Temperature: 30
+Possibilities: 0.3
+Parameters: map[Hello:hello Object:World Possibilities:0.3 Temperature:30]
+✔ NO
+✔ NO
+Running script before the app is created
+echo before vue
+before vue
+Creating folders
+Creating files
+Running script after the app is created
+cd appboot && sh after.sh
+......
+Finish
+```
+
+The `{{.Name}}` placeholder in the VUE template will be replaced with the `Name` parameter of appboot, and the same for other parameters.
 
 ![appboot](./VUE/appboot/images/vue-template.png)
 
 ![appboot](./VUE/appboot/images/vue-test.png)
 
-### Configuration items
+### Configuration
 
-Create a project through [appboot](https://github.com/appboot/appboot) or [appbctl](https://github.com/appboot/appbctl), and configure `pre.sh` and` post.sh` will be executed before and after creating the project.
+If you created the project with [appboot web](https://github.com/appboot/appboot/tree/master/web/appboot), the configuration(`appboot/appboot.yaml`) will be rendered to the front end.
 
-![appboot](./VUE/appboot/images/vue-scripts.png)
+```yaml
+# appboot.yaml
+desc: Vue 2 template
+parameters:
+  - key: Hello
+    type: string
+    tip: hello string
+    default: hello vue
+  - key: Object
+    type: select
+    tip: object value
+    options:
+      - World
+      - Vue
+      - iOS
+  - key: Temperature
+    type: int
+    tip: temperature value
+    default: 27
+    min: 0
+    max: 35
+  - key: Possibilities
+    type: float
+    tip: possibilities value
+    default: 0.6
+    min: 0
+    max: 1.0
+scripts:
+  before:
+    - echo before vue
+  after:
+    - cd appboot && sh after.sh
+```
 
-The `appboot.yaml` in the configuration items will be obtained by [appboot](https://github.com/appboot/appboot) and rendered to the front-end interface.
+![appboot](./VUE/appboot/images/appboot.jpg)
 
-![appboot](./VUE/appboot/images/config.png)
-
-![appboot](./VUE/appboot/images/appboot.png)
+The scripts (`scripts/before & scripts/after`) will also be executed before and after the project is created.

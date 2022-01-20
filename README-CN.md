@@ -4,47 +4,140 @@
 
 ## 模板
 
-`模板`是 appboot 的一个重要概念。如果你使用过 [Helm](https://helm.sh/docs/intro/), `模板`非常类似 Helm 的 **Chart**。
+`模板`是 `appboot` 的一个重要概念。如果你使用过 [Helm](https://helm.sh/docs/intro/), `模板`非常类似 Helm 的 **Chart**。
 
 `模板`使用模板语法，用 `{{.xxx}}` 来为 [appboot](https://github.com/appboot/appboot) 的参数占位。
 
-`模板`分为代码和配置项两大部分。
+`模板`分为**代码**和**配置**两大部分。
 
 ### 代码
 
-需要转换为项目代码的模板代码，如[VUE 模板](./VUE)。
+需要转换为项目代码的模板代码，如 [VUE 模板](./VUE)。
 
-## 配置项
+### 配置
 
-配置项存放在`模板`中的 `appboot` 文件夹，主要用于[appboot](https://github.com/appboot/appboot)前端渲染和后端执行自定义脚本
+配置存放在`模板`中的 `appboot/appboot.yaml`。
 
-![appboot](./VUE/appboot/images/config.png)
+```yaml
+# appboot.yaml
+desc: Vue 2 template
+parameters:
+  - key: Hello
+    type: string
+    tip: hello string
+    default: hello vue
+  - key: Object
+    type: select
+    tip: object value
+    options:
+      - World
+      - Vue
+      - iOS
+  - key: Temperature
+    type: int
+    tip: temperature value
+    default: 27
+    min: 0
+    max: 35
+  - key: Possibilities
+    type: float
+    tip: possibilities value
+    default: 0.6
+    min: 0
+    max: 1.0
+scripts:
+  before:
+    - echo before vue
+  after:
+    - cd appboot && sh after.sh
+```
 
-- `pre.sh`：创建项目之前运行的脚本，如[VUE 模板 pre.sh](./VUE/appboot/pre.sh)
-- `post.sh`：创建项目之后运行的脚本，如[VUE 模板 post.sh](./VUE/appboot/post.sh)
-- `appboot.yaml`：非脚本配置项，如[VUE 模板 appboot.yaml](./VUE/appboot/appboot.yaml)
-  - parameters：参数列表，目前支持 string、int、float 三种类型。
+配置包含如下几个部分：
+
+- desc：模板的描述信息
+- parameters：参数列表，目前支持 `string、int、float、select` 四种类型。
+  > `Name` 为默认参数，表示项目的名称，没有列在 `parameters` 中
+- scripts：自定义脚本
+  - before：创建项目前执行的命令集合。**当前目录(pwd)指向 appboot 执行的位置**。
+  - after：创建项目后执行的命令集合。**当前目录(pwd)指向生成项目的根目录**。
 
 ## Demo
 
-下面以[VUE 模板](./VUE)为例，解释模板的使用。
+下面以 [VUE 模板](./VUE)为例，解释模板的使用。
 
 ### 代码
 
-通过 [appboot](https://github.com/appboot/appboot) 或者 [appbctl](https://github.com/appboot/appbctl) 创建项目，VUE 模板中 `{{.Name}}` 占位符将被替换为 appboot `Name` 参数。
+使用 [appboot](https://github.com/appboot/appboot) 命令行创建项目
+
+```sh
+❯ appboot create
+Using config file: /Users/catchzeng/.appboot/config.yaml
+✔ VUE
+Name: test
+Path: ~/Desktop/test
+Enter the parameters, if you need to use the default value, just press Enter.
+Hello: hello
+✔ World
+Temperature: 30
+Possibilities: 0.3
+Parameters: map[Hello:hello Object:World Possibilities:0.3 Temperature:30]
+✔ NO
+✔ NO
+Running script before the app is created
+echo before vue
+before vue
+Creating folders
+Creating files
+Running script after the app is created
+cd appboot && sh after.sh
+......
+Finish
+```
+
+VUE 模板中 `{{.Name}}` 占位符将被替换为 appboot 的 `Name` 参数，其他参数同理。
 
 ![appboot](./VUE/appboot/images/vue-template.png)
 
 ![appboot](./VUE/appboot/images/vue-test.png)
 
-### 配置项
+### 配置
 
-通过 [appboot](https://github.com/appboot/appboot) 或者 [appbctl](https://github.com/appboot/appbctl) 创建项目，配置项中的 `pre.sh` 和 `post.sh` 将分别在创建项目之前和之后执行。
+如果你使用 [appboot web](https://github.com/appboot/appboot/tree/master/web/appboot) 创建项目，则配置将会被渲染到前端。
 
-![appboot](./VUE/appboot/images/vue-scripts.png)
+```yaml
+# appboot.yaml
+desc: Vue 2 template
+parameters:
+  - key: Hello
+    type: string
+    tip: hello string
+    default: hello vue
+  - key: Object
+    type: select
+    tip: object value
+    options:
+      - World
+      - Vue
+      - iOS
+  - key: Temperature
+    type: int
+    tip: temperature value
+    default: 27
+    min: 0
+    max: 35
+  - key: Possibilities
+    type: float
+    tip: possibilities value
+    default: 0.6
+    min: 0
+    max: 1.0
+scripts:
+  before:
+    - echo before vue
+  after:
+    - cd appboot && sh after.sh
+```
 
-配置项中的 `appboot.yaml` 会被 [appboot](https://github.com/appboot/appboot) 获取并渲染到前端界面。
+![appboot](./VUE/appboot/images/appboot.jpg)
 
-![appboot](./VUE/appboot/images/config.png)
-
-![appboot](./VUE/appboot/images/appboot.png)
+相应的脚本(`scripts/before & scripts/after`)也会在创建项目前后执行。

@@ -1,10 +1,16 @@
+desc: SwiftUI template
 parameters:
-  string:
-    - key: OrgName
-      default: appboot
-  select:
-    - key: Object
-      options:
-        - World
-        - Swift
-        - iOS
+  - key: OrgName
+    type: string
+    default: appboot
+  - key: Object
+    type: select
+    options:
+      - World
+      - Swift
+      - iOS
+scripts:
+  before:
+    - echo before SwiftUI
+  after:
+    - cd appboot && sh after.sh

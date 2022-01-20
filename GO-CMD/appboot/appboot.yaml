@@ -1,6 +1,11 @@
+desc: golang command line tool template
 parameters:
-  string:
-    - key: ModuleGit
-      default: github.com/appboot
-    - key: DockerGroup
-      default: appboot
+  - key: ModuleGit
+    type: string
+    default: github.com/appboot
+  - key: DockerGroup
+    type: string
+    default: appboot
+scripts:
+  after:
+    - cd appboot && sh post.sh
