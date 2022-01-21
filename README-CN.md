@@ -20,7 +20,7 @@
 
 ```yaml
 # appboot.yaml
-desc: Vue 2 template
+desc: Vue 3 + Typescript + Vite template
 parameters:
   - key: Hello
     type: string
@@ -106,7 +106,7 @@ VUE 模板中 `{{.Name}}` 占位符将被替换为 appboot 的 `Name` 参数，�
 
 ```yaml
 # appboot.yaml
-desc: Vue 2 template
+desc: Vue 3 + Typescript + Vite template
 parameters:
   - key: Hello
     type: string

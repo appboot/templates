@@ -1,4 +1,4 @@
-desc: Vue 2 template
+desc: Vue 3 + Typescript + Vite template
 parameters:
   - key: Hello
     type: string

@@ -22,7 +22,7 @@ The configuration is stored in the template's `appboot/appboot.yaml`.
 
 ```yaml
 # appboot.yaml
-desc: Vue 2 template
+desc: Vue 3 + Typescript + Vite template
 parameters:
   - key: Hello
     type: string
@@ -108,7 +108,7 @@ If you created the project with [appboot web](https://github.com/appboot/appboot
 
 ```yaml
 # appboot.yaml
-desc: Vue 2 template
+desc: Vue 3 + Typescript + Vite template
 parameters:
   - key: Hello
     type: string
