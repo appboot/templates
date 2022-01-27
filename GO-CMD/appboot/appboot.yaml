@@ -8,4 +8,4 @@ parameters:
     default: appboot
 scripts:
   after:
-    - cd appboot && sh post.sh
+    - sh appboot/after.sh

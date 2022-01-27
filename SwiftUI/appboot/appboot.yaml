@@ -13,4 +13,4 @@ scripts:
   before:
     - echo before SwiftUI
   after:
-    - cd appboot && sh after.sh
+    - sh appboot/after.sh

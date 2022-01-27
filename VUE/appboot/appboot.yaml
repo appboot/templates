@@ -27,4 +27,4 @@ scripts:
   before:
     - echo before vue
   after:
-    - cd appboot && sh after.sh
+    - sh appboot/after.sh
