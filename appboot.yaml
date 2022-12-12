@@ -1,0 +1,13 @@
+groups:
+  - id: Back-end Templates
+    desc: Back-end templates
+    templates:
+      - id: GO-CMD
+        desc: "golang command line tool template"
+  - id: Front-end Templates
+    desc: Front-end templates
+    templates:
+      - id: SwiftUI
+        desc: "SwiftUI template"
+      - id: VUE
+        desc: "Vue 3 + Typescript + Vite template"

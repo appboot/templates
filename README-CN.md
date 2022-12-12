@@ -61,6 +61,28 @@ scripts:
   - before：创建项目前执行的命令集合。**当前目录(pwd)指向 appboot 执行的位置**。
   - after：创建项目后执行的命令集合。**当前目录(pwd)指向生成项目的根目录**。
 
+## 模版分组
+
+当模版很多的时候，可以对模版进行分组。
+
+在模版仓库中增加 `appboot.yaml` 指定 `groups` 即可，如下所示
+
+```yaml
+groups:
+  - id: Back-end Templates
+    desc: Back-end templates
+    templates:
+      - id: GO-CMD
+        desc: "golang command line tool template"
+  - id: Front-end Templates
+    desc: Front-end templates
+    templates:
+      - id: SwiftUI
+        desc: "SwiftUI template"
+      - id: VUE
+        desc: "Vue 3 + Typescript + Vite template"
+```
+
 ## Demo
 
 下面以 [VUE 模板](./VUE)为例，解释模板的使用。

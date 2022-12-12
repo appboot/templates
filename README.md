@@ -63,6 +63,29 @@ The configuration contains the following parts:
   - before: The set of commands executed before the project is created.**The current directory(pwd) is the location where appboot is executed**.
   - after: The set of commands to execute after the project is created. **The current directory(pwd) is the root directory of the generated project**.
 
+
+## Template grouping
+
+When there are many templates, the templates can be grouped.
+
+Add `appboot.yaml` to the template repository and specify `groups`, as shown below
+
+```yaml
+groups:
+  - id: Back-end Templates
+    desc: Back-end templates
+    templates:
+      - id: GO-CMD
+        desc: "golang command line tool template"
+  - id: Front-end Templates
+    desc: Front-end templates
+    templates:
+      - id: SwiftUI
+        desc: "SwiftUI template"
+      - id: VUE
+        desc: "Vue 3 + Typescript + Vite template"
+```
+
 ## Demo
 
 The following takes [VUE template](./VUE) as an example to explain the template.
